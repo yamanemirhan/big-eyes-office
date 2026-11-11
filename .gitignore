@@ -1,0 +1,26 @@
+# Dependencies and builds
+node_modules/
+dist/
+desktop/root.json
+desktop/icon.png
+*.tsbuildinfo
+
+# Everything the app stores at run time: settings and API keys (state.json), the supervisor token,
+# runs, uploads, logs, the SQLite database and downloaded skills. Never commit this folder.
+data/
+
+# Secrets and local files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.log
+*.db
+*.sqlite
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

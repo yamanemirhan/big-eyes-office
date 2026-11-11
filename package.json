@@ -1,0 +1,20 @@
+{
+  "name": "big-eyes-office",
+  "version": "0.5.0",
+  "private": true,
+  "description": "A local office of big-eyed AI agents: build teams from Claude, Codex and local models and run them from one UI.",
+  "license": "MIT",
+  "workspaces": ["server", "web"],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w web\"",
+    "build": "npm run build -w web",
+    "start": "npm run build -w web && npm run start -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "test": "npm test -w server",
+    "supervise": "node scripts/supervisor.mjs",
+    "desktop": "npm --prefix desktop install --no-audit --no-fund && npm --prefix desktop start",
+    "desktop:build": "npm --prefix desktop install --no-audit --no-fund && npm --prefix desktop run build"
+  },
+  "devDependencies": { "concurrently": "^9.1.0" },
+  "engines": { "node": ">=22" }
+}

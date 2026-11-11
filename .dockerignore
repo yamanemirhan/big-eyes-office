@@ -1,0 +1,9 @@
+# The image only needs the package files; keep secrets and bulky folders out of the build context.
+node_modules
+**/node_modules
+data
+web/dist
+.git
+*.log
+.env
+.env.*

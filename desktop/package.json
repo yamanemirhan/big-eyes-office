@@ -1,0 +1,26 @@
+{
+  "name": "big-eyes-office-desktop",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Desktop window, tray and notifications for Big Eyes Office",
+  "main": "main.cjs",
+  "author": "Emirhan Yaman",
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/write-root.cjs && electron .",
+    "build": "node scripts/write-root.cjs && electron-builder --win nsis --publish never",
+    "build:dir": "node scripts/write-root.cjs && electron-builder --dir --publish never"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "dev.bigeyesoffice.app",
+    "productName": "Big Eyes Office",
+    "directories": { "output": "dist" },
+    "files": ["main.cjs", "loading.html", "root.json", "icon.png"],
+    "win": { "icon": "icon.png", "target": ["nsis"] },
+    "nsis": { "oneClick": false, "perMachine": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "shortcutName": "Big Eyes Office" }
+  }
+}
